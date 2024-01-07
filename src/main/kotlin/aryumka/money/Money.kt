@@ -51,12 +51,11 @@ class Money(
 
 
   // Equality operators
-  override fun equals(other: Any?): Boolean {
-    if (other is Money) {
-      return this.currency == other.currency && this.amount == other.amount
+  override fun equals(other: Any?): Boolean =
+    when (other) {
+      is Money -> this.currency == other.currency && this.amount == other.amount
+      else -> false
     }
-    return false
-  }
 
   override fun toString(): String {
     return "$currency $amount"
