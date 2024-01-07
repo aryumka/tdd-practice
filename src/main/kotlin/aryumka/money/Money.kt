@@ -7,33 +7,29 @@ class Money(
   constructor(currency: Currency, amount: Int): this(currency, amount.toDouble())
 
   // Arithmetic operators
-  operator fun plus(money: Money): Money {
-    if (this.currency != money.currency) {
-      throw IllegalArgumentException("currency is different")
-    }
-    return Money(this.currency, this.amount + money.amount)
-  }
+  operator fun plus(money: Money): Money =
+    Money(
+      if (this.currency == money.currency) this.currency else Currency.USD,
+      this.amount * this.currency.exchangeRate + money.amount * money.currency.exchangeRate
+    )
 
-  operator fun times(money: Money): Money {
-    if (this.currency != money.currency) {
-      throw IllegalArgumentException("currency is different")
-    }
-    return Money(this.currency, this.amount * money.amount)
-  }
+  operator fun times(money: Money): Money =
+    Money(
+      if (this.currency == money.currency) this.currency else Currency.USD,
+      (this.amount * this.currency.exchangeRate) * (money.amount * money.currency.exchangeRate)
+    )
 
-  operator fun div(money: Money): Money {
-    if (this.currency != money.currency) {
-      throw IllegalArgumentException("currency is different")
-    }
-    return Money(this.currency, this.amount / money.amount)
-  }
+  operator fun div(money: Money): Money =
+    Money(
+      if (this.currency == money.currency) this.currency else Currency.USD,
+      (this.amount * this.currency.exchangeRate) / (money.amount * money.currency.exchangeRate)
+    )
 
-  operator fun minus(money: Money): Money {
-    if (this.currency != money.currency) {
-      throw IllegalArgumentException("currency is different")
-    }
-    return Money(this.currency, this.amount - money.amount)
-  }
+  operator fun minus(money: Money): Money =
+    Money(
+      if (this.currency == money.currency) this.currency else Currency.USD,
+      (this.amount * this.currency.exchangeRate) - (money.amount * money.currency.exchangeRate)
+    )
 
   // Comparison operators
   operator fun compareTo(money: Money): Int {
