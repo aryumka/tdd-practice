@@ -31,6 +31,19 @@ class Money(
       (this.amount * this.currency.exchangeRate) - (money.amount * money.currency.exchangeRate)
     )
 
+  // Unary operators
+  operator fun unaryMinus(): Money =
+    Money(
+      this.currency,
+      -this.amount
+    )
+
+  operator fun unaryPlus(): Money =
+    Money(
+      this.currency,
+      +this.amount
+    )
+
   // Comparison operators
   operator fun compareTo(money: Money): Int {
     if (this.currency != money.currency) {
