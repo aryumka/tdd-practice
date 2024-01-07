@@ -61,5 +61,23 @@ class MoneyTests: FunSpec({
       val money = Money(USD, 5)
       money shouldNotBe 5
     }
+
+    test("Money(USD, 5) < Money(USD, 6)") {
+      val money1 = Money(USD, 5)
+      val money2 = Money(USD, 6)
+      money1 < money2 shouldBe true
+    }
+
+    test("Money(USD, 5) > Money(USD, 6)") {
+      val money1 = Money(USD, 5)
+      val money2 = Money(USD, 6)
+      money1 > money2 shouldBe false
+    }
+
+    test("Money(USD, 5) <= Money(USD, 6)") {
+      val money1 = Money(USD, 5)
+      val money2 = Money(USD, 6)
+      money1 <= money2 shouldBe true
+    }
   }
 })
