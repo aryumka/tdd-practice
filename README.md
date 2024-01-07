@@ -2,7 +2,7 @@
 
 TDD practice with Money object following Test-Driven Development by Kent Beck.
 
-## Stack
+## Tech Stack
 * Kotlin
 * Kotest
 
