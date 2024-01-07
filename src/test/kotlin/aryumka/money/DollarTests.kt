@@ -2,6 +2,7 @@ package aryumka.money
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 
 class DollarTests: FunSpec({
   context("Dollar can be added") {
@@ -17,6 +18,17 @@ class DollarTests: FunSpec({
       val dollar1 = Dollar(5)
       val dollar2 = Dollar(5)
       dollar1 shouldBe dollar2
+    }
+
+    test("Dollar(5) != Dollar(6)") {
+      val dollar1 = Dollar(5)
+      val dollar2 = Dollar(6)
+      dollar1 shouldNotBe dollar2
+    }
+
+    test("Dollar(5) != 5") {
+      val dollar = Dollar(5)
+      dollar shouldNotBe 5
     }
   }
 })
