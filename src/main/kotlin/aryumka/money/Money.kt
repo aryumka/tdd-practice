@@ -45,12 +45,10 @@ class Money(
     )
 
   // Comparison operators
-  operator fun compareTo(money: Money): Int {
-    if (this.currency != money.currency) {
-      throw IllegalArgumentException("currency is different")
-    }
-    return this.amount.compareTo(money.amount)
-  }
+  operator fun compareTo(money: Money): Int =
+    (this.amount * this.currency.exchangeRate)
+      .compareTo(money.amount * money.currency.exchangeRate)
+
 
   // Equality operators
   override fun equals(other: Any?): Boolean {
