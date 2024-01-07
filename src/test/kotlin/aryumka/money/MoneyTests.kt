@@ -115,4 +115,16 @@ class MoneyTests: FunSpec({
       (money1 <= money2) shouldBe true
     }
   }
+
+  context("Money can be unary operated") {
+    test("Unary plus") {
+      val money = Money(USD, 5)
+      -money shouldBe Money(USD, -5)
+    }
+
+    test("Unary minus") {
+      val money = Money(USD, -5)
+      +money shouldBe Money(USD, -5)
+    }
+  }
 })
