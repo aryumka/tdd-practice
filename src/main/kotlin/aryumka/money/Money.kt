@@ -2,8 +2,10 @@ package aryumka.money
 
 class Money(
   val currency: Currency,
-  val amount: Int
+  val amount: Double
 ) {
+  constructor(currency: Currency, amount: Int): this(currency, amount.toDouble())
+
   // Arithmetic operators
   operator fun plus(money: Money): Money {
     if (this.currency != money.currency) {
@@ -53,8 +55,8 @@ class Money(
     return "$currency $amount"
   }
 
-  enum class Currency {
-    USD,
-    CHF
+  enum class Currency(val exchangeRate: Double) {
+    USD(1.0),
+    CHF(0.5)
   }
 }
