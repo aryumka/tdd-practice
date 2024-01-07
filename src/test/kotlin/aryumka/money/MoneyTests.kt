@@ -3,6 +3,7 @@ package aryumka.money
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import aryumka.money.Money.Currency.*
 
 class MoneyTests: FunSpec({
   context("Money can be added") {
