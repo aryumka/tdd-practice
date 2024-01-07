@@ -11,4 +11,12 @@ class DollarTests: FunSpec({
       dollar1 + dollar2 shouldBe Dollar(10)
     }
   }
+
+  context("Dollar can be compared by value") {
+    test("Dollar(5) == Dollar(5)") {
+      val dollar1 = Dollar(5)
+      val dollar2 = Dollar(5)
+      dollar1 shouldBe dollar2
+    }
+  }
 })
