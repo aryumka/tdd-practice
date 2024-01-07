@@ -49,6 +49,10 @@ class Money(
     return false
   }
 
+  override fun toString(): String {
+    return "$currency $amount"
+  }
+
   enum class Currency {
     USD,
     CHF
