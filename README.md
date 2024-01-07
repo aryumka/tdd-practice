@@ -1,5 +1,7 @@
 # TDD Practice
 
+<img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61a+MLItPHL._SY466_.jpg" width="200" />
+
 TDD practice with Money object following [Test-Driven Development by Kent Beck](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530).
 
 ## Features
@@ -14,4 +16,4 @@ With different or same currency, supports calculations of Money object as below:
 * Kotest
 
 ## License
-MIT
+MIT License
